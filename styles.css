@@ -1,0 +1,1602 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(23, 21, 70, 255); /* Updated background color */
+    color: white; /* Updated text color for contrast */
+    box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(23, 21, 70, 255); /* Matches the theme */
+    display: flex;
+    justify-content: space-between; /* Ensures logo and toggler are on opposite ends */
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for visibility */
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgba(237, 42, 110, 255); /* Updated title color */
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default */
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white; /* Updated text color for contrast */
+    z-index: 1300;
+    pointer-events: auto;
+}
+
+/* Menu Styling */
+.navbar .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.navbar .menu.active {
+    pointer-events: auto; /* Allow clicks when menu is active */
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: white; /* Updated text color for contrast */
+    font-size: 1em;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.navbar .menu a:hover {
+    color: rgba(237, 42, 110, 255); /* Matches the theme for hover effect */
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: row; /* Keeps items in a row */
+        align-items: center; /* Centers items vertically */
+        justify-content: space-between; /* Spaces out the logo and toggle button */
+        height: 60px; /* Ensures consistent height for alignment */
+        padding: 0 20px; /* Adjust padding as needed */
+    }
+
+    .logo {
+        font-size: 1.5em;
+        line-height: 60px; /* Vertically centers text within navbar height */
+        color: rgba(237, 42, 110, 255); /* Matches the title color */
+    }
+
+    .menu-toggle {
+        display: block; /* Shows the toggle button */
+        font-size: 1.5em; /* Matches logo font size */
+        line-height: 60px; /* Aligns vertically with the logo */
+        color: white; /* Matches the text color */
+        pointer-events: auto;
+        z-index: 1300;
+    }
+
+    .navbar .menu {
+        position: absolute; /* Ensures it drops below the navbar */
+        top: -300px; /* Initially off-screen */
+        left: 0;
+        width: 100%;
+        opacity: 0; /* Fully transparent */
+        flex-direction: column-reverse; /* Stacks items vertically */
+        background-color: rgba(23, 21, 70, 255); /* Matches theme background */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+        padding: 10px 15px;
+        z-index: 1000; /* Ensures it appears above other elements */
+        transition: top 0.4s ease, opacity 0.4s ease; /* Smooth transition for sliding and fading */
+        overflow: hidden; /* Prevents contents from appearing while sliding */
+        pointer-events: none; /* Prevent interaction when hidden */
+    }
+
+    .navbar .menu.active {
+        top: 100%; /* Brings the menu into view */
+        opacity: 1; /* Fully visible */
+        pointer-events: auto;
+    }
+
+    .navbar .menu a {
+        font-size: 1em;
+        padding: 8px 0;
+        text-align: left;
+        color: white; /* Matches text color */
+        opacity: 0; /* Start with items hidden */
+        transform: translateY(-10px); /* Slightly move up initially */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth stagger effect */
+    }
+
+    .navbar .menu.active a {
+        opacity: 1; /* Fade in items */
+        transform: translateY(0); /* Move into place */
+    }
+
+    .navbar .menu.active a:nth-child(1) {
+        transition-delay: 0.1s; /* Add delay for the first item */
+    }
+
+    .navbar .menu.active a:nth-child(2) {
+        transition-delay: 0.2s; /* Add delay for the second item */
+    }
+
+    .navbar .menu.active a:nth-child(3) {
+        transition-delay: 0.3s; /* Add delay for the third item */
+    }
+
+    .navbar .menu.active a:nth-child(4) {
+        transition-delay: 0.4s; /* Add delay for the fourth item */
+    }
+
+    .navbar .menu.active a:nth-child(5) {
+        transition-delay: 0.5s; /* Add delay for the fifth item */
+    }
+
+    .navbar .menu.active a:nth-child(6) {
+        transition-delay: 0.75s; /* Delay for sixth item */
+    }
+
+    .navbar .menu.active a:nth-child(7) {
+        transition-delay: 1s; /* Delay for seventh item */
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: row; /* Keeps items in a row */
+        align-items: center; /* Centers items vertically */
+        justify-content: space-between; /* Spaces out the logo and toggle button */
+        height: 60px; /* Ensures consistent height for alignment */
+        padding: 0 20px; /* Adjust padding as needed */
+    }
+
+    .logo {
+        font-size: 1.5em;
+        line-height: 60px; /* Vertically centers text within navbar height */
+        color: rgba(237, 42, 110, 255); /* Matches the title color */
+    }
+
+    .menu-toggle {
+        display: block; /* Shows the toggle button */
+        font-size: 1.5em; /* Matches logo font size */
+        line-height: 60px; /* Aligns vertically with the logo */
+        color: white; /* Matches the text color */
+        pointer-events: auto;
+    }
+
+    .navbar .menu {
+        position: absolute; /* Ensures it drops below the navbar */
+        top: -300px; /* Initially off-screen */
+        left: 0;
+        width: 100%;
+        opacity: 0; /* Fully transparent */
+        flex-direction: column; /* Stacks items vertically */
+        background-color: rgba(23, 21, 70, 255); /* Matches theme background */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+        padding: 10px 15px;
+        z-index: 1000; /* Ensures it appears above other elements */
+        transition: top 0.6s ease-in-out, opacity 0.6s ease-in-out; /* Longer and smoother transition */
+        overflow: hidden; /* Prevents contents from appearing while sliding */
+    }
+
+    .navbar .menu.active {
+        top: 100%; /* Brings the menu into view */
+        opacity: 1; /* Fully visible */
+        pointer-events: auto;
+    }
+
+    .navbar .menu a {
+        font-size: 1em;
+        padding: 8px 0;
+        text-align: left;
+        color: white; /* Matches text color for readability */
+        opacity: 0; /* Start with items hidden */
+        transform: translateY(-15px); /* Slightly move up initially */
+        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; /* Smooth stagger effect */
+    }
+
+    .navbar .menu.active a {
+        opacity: 1; /* Fade in items */
+        transform: translateY(0); /* Move into place */
+    }
+
+    .navbar .menu.active a:nth-child(1) {
+        transition-delay: 0.15s; /* Add delay for the first item */
+    }
+
+    .navbar .menu.active a:nth-child(2) {
+        transition-delay: 0.3s; /* Add delay for the second item */
+    }
+
+    .navbar .menu.active a:nth-child(3) {
+        transition-delay: 0.45s; /* Add delay for the third item */
+    }
+
+    .navbar .menu.active a:nth-child(4) {
+        transition-delay: 0.6s; /* Add delay for the fourth item */
+    }
+
+    .navbar .menu.active a:nth-child(5) {
+        transition-delay: 0.75s; /* Add delay for the fifth item */
+    }
+
+    .navbar .menu.active a:nth-child(6) {
+        transition-delay: 0.9s; /* Delay for sixth item */
+    }
+
+    .navbar .menu.active a:nth-child(7) {
+        transition-delay: 1.15s; /* Delay for seventh item */
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Keeps the title and toggle button in a row */
+        align-items: center; /* Aligns items vertically */
+        justify-content: space-between; /* Spaces out logo and toggle button */
+        height: 60px; /* Ensures consistent height */
+        padding: 0 10px;
+    }
+
+    .logo {
+        font-size: 1.25em;
+        line-height: 60px; /* Vertically centers the title */
+        color: rgba(237, 42, 110, 255); /* Matches the title color */
+    }
+
+    .menu-toggle {
+        display: block; /* Ensures the toggle button is visible */
+        font-size: 1.5em;
+        line-height: 60px; /* Aligns it vertically with the logo */
+        color: white; /* Matches the text color */
+        pointer-events: auto;
+    }
+
+    .navbar .menu {
+        position: absolute; /* Ensures menu appears below the navbar */
+        top: -300px; /* Initially off-screen */
+        left: 0;
+        width: 100%;
+        opacity: 0; /* Fully transparent */
+        flex-direction: column; /* Stacks items vertically */
+        background-color: rgba(23, 21, 70, 255); /* Dark background color */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        padding: 10px 15px;
+        z-index: 1000; /* Ensures menu appears above other elements */
+        transition: top 0.6s ease-in-out, opacity 0.6s ease-in-out; /* Longer and smoother transition */
+        overflow: hidden; /* Prevents contents from appearing while sliding */
+    }
+
+    .navbar .menu.active {
+        top: 100%; /* Brings the menu into view */
+        opacity: 1; /* Fully visible */
+        pointer-events: auto;
+    }
+
+    .navbar .menu a {
+        font-size: 0.85em;
+        padding: 10px 0; /* Adjusts padding for touch devices */
+        text-align: left;
+        color: white; /* Matches text color for better readability */
+        opacity: 0; /* Start hidden */
+        transform: translateY(-15px); /* Slightly move up initially */
+        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; /* Smooth stagger effect */
+    }
+
+    .navbar .menu.active a {
+        opacity: 1; /* Fade in items */
+        transform: translateY(0); /* Move into place */
+    }
+
+    .navbar .menu.active a:nth-child(1) {
+        transition-delay: 0.15s; /* Delay for first item */
+    }
+
+    .navbar .menu.active a:nth-child(2) {
+        transition-delay: 0.3s; /* Delay for second item */
+    }
+
+    .navbar .menu.active a:nth-child(3) {
+        transition-delay: 0.45s; /* Delay for third item */
+    }
+
+    .navbar .menu.active a:nth-child(4) {
+        transition-delay: 0.6s; /* Delay for fourth item */
+    }
+
+    .navbar .menu.active a:nth-child(5) {
+        transition-delay: 0.75s; /* Delay for fifth item */
+    }
+
+    .navbar .menu.active a:nth-child(6) {
+        transition-delay: 0.9s; /* Delay for sixth item */
+    }
+
+    .navbar .menu.active a:nth-child(7) {
+        transition-delay: 1.15s; /* Delay for seventh item */
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Video Background */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video scales appropriately */
+    z-index: -1;
+}
+
+/* Content Overlay */
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Hero Title Styles */
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgba(255, 192, 203, 1); /* Pink color */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* For readability */
+    animation: fadeIn 2s ease-out, scaleIn 3s ease-in-out infinite alternate;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem; /* Reduce title size */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem; /* Smaller screens */
+    }
+
+    .content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem; /* Adjust for mobile */
+    }
+
+    .content {
+        padding: 10px;
+    }
+}
+
+
+
+
+/* About Us Section Styling */
+.about-us {
+    position: relative;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, rgba(23, 21, 70, 255), rgba(23, 21, 70, 0.9)); /* Dark gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.about-content {
+    max-width: 800px;
+    opacity: 0; /* Start invisible */
+    transform: translateY(50px); /* Start below the viewport */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth animation */
+}
+
+.about-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.about-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: white; /* White text for readability */
+}
+
+/* Active class for animation */
+.about-content.active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content h2 {
+        font-size: 2em; /* Smaller font size for tablets */
+    }
+
+    .about-content p {
+        font-size: 1em; /* Adjust font size for readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content h2 {
+        font-size: 1.8em; /* Smaller font size for mobile */
+    }
+
+    .about-content p {
+        font-size: 0.9em; /* Adjust font size for mobile */
+    }
+}
+
+
+/* Section Divider Styling */
+.section-divider {
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, rgba(237, 42, 110, 1), rgba(23, 21, 70, 1), rgba(237, 42, 110, 1)); /* Gradient with theme colors */
+    margin: 40px auto; /* Center and add space between sections */
+    border-radius: 2px; /* Slightly rounded edges */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth hover effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+/* Hover Effect for Divider */
+.section-divider:hover {
+    transform: scaleX(1.1); /* Slightly scale up on hover */
+    box-shadow: 0 4px 10px rgba(237, 42, 110, 0.5); /* Enhance shadow with theme color */
+}
+
+/* Responsive Design for Divider */
+@media (max-width: 768px) {
+    .section-divider {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-divider {
+        width: 95%; /* Adjust width for very small screens */
+    }
+}
+
+
+
+/* Services Section Styling */
+.services-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(120deg, rgba(23, 21, 70, 255), rgba(23, 21, 70, 0.9)); /* Dark gradient background */
+    text-align: center;
+    overflow: hidden;
+}
+
+.services-section .section-title {
+    font-size: 2.5em;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.services-section .section-subtitle {
+    font-size: 1.2em;
+    color: white; /* White text for readability */
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    flex: 1 1 calc(33% - 20px);
+    background: rgba(237, 42, 110, 0.1); /* Slight accent for cards */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    color: white; /* Text color inside cards */
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-card {
+        flex: 1 1 calc(50% - 20px); /* Adjust grid for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card {
+        flex: 1 1 100%; /* Stacks cards for mobile */
+    }
+}
+
+/* Icon Styling */
+.icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, rgba(237, 42, 110, 255), rgba(255, 105, 180, 255)); /* Vibrant gradient */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+.icon-container img {
+    width: 100%; /* Ensure the image fills the circle */
+    height: 100%; /* Ensure the image fills the circle */
+    object-fit: cover; /* Cover the entire circle area */
+    border-radius: 50%; /* Ensure the image takes a circular shape */
+}
+
+/* Card Content */
+.service-card h3 {
+    font-size: 1.8em;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: white; /* White text for readability */
+    line-height: 1.6;
+}
+
+/* Animation for Services Section */
+.services-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.services-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-grid {
+        flex-direction: column;
+    }
+
+    .service-card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-section .section-title {
+        font-size: 2.5em;
+    }
+
+    .services-section .section-subtitle {
+        font-size: 1em;
+    }
+
+    .service-card h3 {
+        font-size: 1.5em;
+    }
+
+    .service-card p {
+        font-size: 0.9em;
+    }
+}
+
+
+/* Courts Section Styling */
+.courts-section {
+    position: relative;
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.courts-section h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    max-width: 300px; /* Smaller overall width for the slideshow container */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px; /* Rounded edges for the slideshow container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    box-sizing: border-box; /* Ensures padding and borders are included in the size */
+    background: rgba(23, 21, 70, 255); /* Dark background for fallback */
+}
+
+/* Slide Styling */
+.slide {
+    display: none; /* Initially hide all slides */
+    position: relative;
+    width: 100%; /* Ensure the slide takes up the full width of the container */
+    height: 150px; /* Smaller height for the slides */
+    overflow: hidden; /* Ensure no overflow */
+}
+
+.slide img {
+    display: block; /* Ensures the image doesn't have any extra space around it */
+    width: 100%; /* Fit the container width */
+    height: 100%; /* Fit the container height */
+    object-fit: cover; /* Maintain aspect ratio while filling the container */
+    border-radius: inherit; /* Inherit the border-radius from the container */
+    box-sizing: border-box; /* Ensures borders are within the size of the image */
+}
+
+/* Caption Styling */
+.caption {
+    position: absolute;
+    bottom: 10px; /* Adjust spacing for smaller slides */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker semi-transparent background */
+    color: rgba(237, 42, 110, 255); /* Vibrant text color */
+    padding: 5px 10px; /* Reduced padding for smaller captions */
+    border-radius: 5px;
+    font-size: 0.8em; /* Smaller font size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+    position: relative;
+    margin-top: 15px; /* Adjust margin for smaller controls */
+}
+
+.slideshow-controls .prev,
+.slideshow-controls .next {
+    cursor: pointer;
+    font-size: 1.5em; /* Smaller control size */
+    padding: 8px 15px; /* Reduced padding for controls */
+    color: rgba(23, 21, 70, 255); /* Matches theme background */
+    background-color: rgba(237, 42, 110, 255); /* Vibrant accent */
+    border: 1px solid rgba(237, 42, 110, 255);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.slideshow-controls .prev:hover,
+.slideshow-controls .next:hover {
+    background-color: rgba(23, 21, 70, 255); /* Invert hover effect */
+    color: rgba(237, 42, 110, 255); /* Complementary hover color */
+    transform: scale(1.1); /* Subtle hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slideshow-container {
+        max-width: 250px; /* Smaller container for tablets */
+    }
+
+    .slide {
+        height: 120px; /* Smaller height for tablets */
+    }
+
+    .caption {
+        font-size: 0.7em; /* Smaller font size for captions */
+    }
+
+    .slideshow-controls .prev,
+    .slideshow-controls .next {
+        font-size: 1.3em; /* Smaller controls for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow-container {
+        max-width: 200px; /* Smallest container for mobile devices */
+    }
+
+    .slide {
+        height: 100px; /* Smallest height for mobile */
+    }
+
+    .caption {
+        font-size: 0.6em; /* Compact font size for captions */
+    }
+
+    .slideshow-controls .prev,
+    .slideshow-controls .next {
+        font-size: 1em; /* Smallest controls */
+    }
+}
+
+
+/* Courts Section Styling */
+.courts-section {
+    position: relative;
+    padding: 60px 20px;
+    background-color: rgba(23, 21, 70, 255); /* Dark theme background */
+    text-align: center;
+}
+
+.courts-section h2 {
+    font-size: 2.5em;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px; /* Rounded edges for the slideshow */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+}
+
+/* Slide Styling */
+.slide {
+    display: none; /* Initially hide all slides */
+    position: relative;
+}
+
+.slide img {
+    width: 100%; /* Make images responsive */
+    border-radius: 10px;
+}
+
+.caption {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white; /* White text for readability */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+/* Fade Animation */
+.fade {
+    animation: fadeEffect 1.5s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+    position: relative;
+    margin-top: 20px;
+}
+
+.slideshow-controls .prev,
+.slideshow-controls .next {
+    cursor: pointer;
+    font-size: 2em;
+    padding: 10px 20px;
+    color: rgba(23, 21, 70, 255); /* Matches theme background */
+    background-color: rgba(237, 42, 110, 255); /* Vibrant accent */
+    border: 1px solid rgba(237, 42, 110, 255);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.slideshow-controls .prev:hover,
+.slideshow-controls .next:hover {
+    background-color: rgba(23, 21, 70, 255); /* Invert hover effect */
+    color: rgba(237, 42, 110, 255); /* Complementary hover color */
+    transform: scale(1.1); /* Subtle hover effect */
+}
+
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px; /* Rounded edges for the slideshow container */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow for depth */
+    box-sizing: border-box; /* Ensures padding and borders are included in the size */
+    background: rgba(23, 21, 70, 255); /* Dark background for fallback */
+}
+
+/* Slide Styling */
+.slide {
+    display: none; /* Initially hide all slides */
+    position: relative;
+    width: 100%; /* Ensure the slide takes up the full width of the container */
+    height: auto;
+}
+
+.slide img {
+    display: block; /* Ensures the image doesn't have any extra space around it */
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: inherit; /* Inherit the border-radius from the container */
+    box-sizing: border-box; /* Ensures borders are within the size of the image */
+}
+
+/* Caption Styling */
+.caption {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker semi-transparent background */
+    color: rgba(237, 42, 110, 255); /* Vibrant text color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .courts-section h2 {
+        font-size: 2em; /* Adjust heading size */
+    }
+
+    .caption {
+        font-size: 1em; /* Adjust caption size */
+    }
+
+    .slideshow-controls .prev,
+    .slideshow-controls .next {
+        font-size: 1.5em; /* Adjust control size */
+    }
+}
+
+@media (max-width: 480px) {
+    .courts-section h2 {
+        font-size: 1.8em; /* Adjust heading size for mobile */
+    }
+
+    .caption {
+        font-size: 0.9em; /* Smaller captions */
+    }
+
+    .slideshow-controls .prev,
+    .slideshow-controls .next {
+        font-size: 1.2em; /* Smaller controls */
+    }
+}
+
+
+/* Pricing Section Styling */
+.pricing-section {
+    position: relative;
+    padding: 60px 20px;
+    background: linear-gradient(to right, rgba(23, 21, 70, 255), rgba(23, 21, 70, 0.9)); /* Dark gradient background */
+    text-align: center;
+    overflow: hidden;
+}
+
+.pricing-section h2 {
+    font-size: 2.5em;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pricing-hours-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing, .hours {
+    background: rgba(237, 42, 110, 0.1); /* Subtle accent for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    border-radius: 10px;
+    padding: 20px 30px;
+    flex: 1 1 45%;
+    max-width: 45%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    color: white; /* Text color for readability */
+}
+
+.pricing:hover, .hours:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+.pricing h3, .hours h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color for cards */
+}
+
+.pricing ul, .hours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+    color: white; /* White text for readability */
+    line-height: 1.8;
+}
+
+.pricing ul li, .hours ul li {
+    margin-bottom: 10px;
+}
+
+/* Transition Effect for Pricing Section */
+.pricing-section {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.pricing-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricing, .hours {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-section h2 {
+        font-size: 2em;
+    }
+
+    .pricing h3, .hours h3 {
+        font-size: 1.5em;
+    }
+
+    .pricing ul, .hours ul {
+        font-size: 1em;
+    }
+}
+
+/* Events Section Styling */
+.events-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(120deg, rgba(23, 21, 70, 255), rgba(23, 21, 70, 0.9)); /* Dark gradient background */
+    text-align: center;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.section-subtitle {
+    font-size: 1.2em;
+    color: white; /* White text for readability */
+    margin-bottom: 40px;
+}
+
+.events-blog-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card, .blog-card {
+    flex: 1 1 calc(33.33% - 30px);
+    background: rgba(237, 42, 110, 0.1); /* Subtle accent for cards */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    overflow: hidden;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.event-card:hover, .blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 0 0 15px 15px; /* Matches card radius */
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+/* Content Container */
+.content-container {
+    padding: 20px;
+    text-align: left;
+    color: white; /* White text for readability */
+}
+
+.content-container h3 {
+    font-size: 1.8em;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 15px;
+}
+
+.content-container p {
+    font-size: 1em;
+    color: white; /* White text for readability */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Blog Card Styling */
+.blog-card {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(237, 42, 110, 255), rgba(255, 105, 180, 255)); /* Vibrant gradient */
+    color: white;
+}
+
+.blog-card h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.blog-card p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-card, .blog-card {
+        flex: 1 1 calc(50% - 20px); /* Adjust grid for smaller screens */
+    }
+
+    .section-title {
+        font-size: 2em; /* Adjust title size */
+    }
+
+    .section-subtitle {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-card, .blog-card {
+        flex: 1 1 100%; /* Stacks cards for mobile */
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .section-subtitle {
+        font-size: 0.9em;
+    }
+
+    .blog-card h3 {
+        font-size: 1.8em;
+    }
+
+    .blog-card p {
+        font-size: 1em;
+    }
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(237, 42, 110, 255); /* Vibrant button color */
+    color: white; /* White text for contrast */
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.4s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.cta-button:hover {
+    background: rgba(255, 105, 180, 255); /* Lighter hover color for vibrancy */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Section Animation */
+.events-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.events-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .events-blog-grid {
+        flex-direction: column;
+    }
+
+    .event-card, .blog-card {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+/* Coaches Section Styling */
+.coaches-section {
+    padding: 60px 20px;
+    background-color: rgba(23, 21, 70, 255); /* Dark theme background */
+    text-align: center;
+}
+
+.coaches-section h2 {
+    font-size: 2.5em;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Coaches Container */
+.coaches-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensure cards wrap to a new row if needed */
+    justify-content: space-around; /* Center-align cards */
+    gap: 20px; /* Space between cards */
+    max-width: 1200px; /* Limit container width */
+    margin: 0 auto; /* Center container */
+}
+
+/* Coach Card Styling */
+.coach-card {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute content */
+    align-items: center; /* Center content horizontally */
+    width: 300px; /* Default width for desktop */
+    height: 400px; /* Default height for desktop */
+    perspective: 1000px; /* Enable 3D perspective for flip */
+    border-radius: 10px; /* Rounded edges */
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease; /* Smooth hover animation */
+    position: relative; /* Maintain proper layering */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+}
+
+.coach-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Card Front and Back Styling */
+.coach-card .card-front,
+.coach-card .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Hide the back when flipped */
+    border-radius: 10px; /* Ensure consistency */
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out; /* Smooth flip animation */
+}
+
+.coach-card .card-front {
+    background: rgba(237, 42, 110, 0.1); /* Subtle accent for front */
+    transform: rotateY(0); /* Default state */
+}
+
+.coach-card .card-back {
+    background: rgba(23, 21, 70, 255); /* Dark theme for back */
+    color: white; /* White text for readability */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transform: rotateY(180deg); /* Hidden by default */
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.5;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle inner shadow for depth */
+}
+
+.coach-card:hover .card-front {
+    transform: rotateY(-180deg); /* Flip to the back */
+}
+
+.coach-card:hover .card-back {
+    transform: rotateY(0deg); /* Show the back */
+}
+
+/* Image Styling */
+.coach-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover; /* Ensure images fit nicely */
+    border-bottom: 5px solid rgba(237, 42, 110, 255); /* Add vibrant border */
+}
+
+
+/* Media Queries */
+
+/* General Media Query Adjustments */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+    .coaches-section h2 {
+        font-size: 2em; /* Match heading size across media sections */
+        margin-bottom: 30px; /* Consistent spacing below heading */
+    }
+
+    .coaches-container {
+        display: flex; /* Ensure flexbox layout */
+        flex-wrap: wrap; /* Allow cards to wrap */
+        justify-content: space-between; /* Space cards evenly */
+        gap: 25px; /* Add spacing between cards */
+    }
+
+    .coach-card {
+        flex: 1 1 calc(45% - 25px); /* Two cards per row with consistent spacing */
+        max-width: 280px; /* Limit card width */
+        height: 350px; /* Adjust height for tablets */
+    }
+
+    .coach-card .card-front h3 {
+        font-size: 1.4em; /* Consistent font size for card titles */
+    }
+
+    .coach-card .card-back p {
+        font-size: 1em; /* Match paragraph text size across sections */
+        line-height: 1.5; /* Adjust line spacing */
+    }
+}
+
+/* Small Screens (Mobile Devices) */
+@media (max-width: 768px) {
+    .coaches-section h2 {
+        font-size: 1.8em; /* Smaller heading size for mobile */
+        margin-bottom: 25px; /* Adjust spacing */
+    }
+
+    .coaches-container {
+        justify-content: center; /* Center-align cards */
+        gap: 20px; /* Reduce spacing slightly for mobile */
+    }
+
+    .coach-card {
+        flex: 1 1 calc(48% - 20px); /* Two cards per row */
+        max-width: 250px; /* Reduce card size for smaller screens */
+        height: 320px; /* Adjust height */
+    }
+
+    .coach-card .card-front h3 {
+        font-size: 1.2em; /* Adjust font size for readability */
+    }
+
+    .coach-card .card-back p {
+        font-size: 0.9em; /* Smaller paragraph size for compact screens */
+        line-height: 1.4; /* Adjust line spacing */
+    }
+}
+
+/* Very Small Screens (Narrow Mobile) */
+@media (max-width: 480px) {
+    .coaches-section h2 {
+        font-size: 1.6em; /* Smaller heading size for very small screens */
+        margin-bottom: 20px; /* Adjust spacing */
+    }
+
+    .coaches-container {
+        justify-content: center; /* Center-align all cards */
+        gap: 15px; /* Adjust spacing for narrow screens */
+        padding: 0 10px; /* Prevent overflow */
+    }
+
+    .coach-card {
+        flex: 1 1 calc(100% - 15px); /* Full-width cards with spacing */
+        max-width: 300px; /* Limit width */
+        height: 300px; /* Adjust height for narrow screens */
+    }
+
+    .coach-card .card-front h3 {
+        font-size: 1em; /* Smaller title size */
+    }
+
+    .coach-card .card-back p {
+        font-size: 0.8em; /* Compact paragraph size */
+        line-height: 1.3; /* Adjust line spacing */
+    }
+}
+
+
+/* Image Styling */
+.coach-card img {
+    width: 100%; /* Ensure image spans the full width */
+    height: 70%; /* Set proportional height */
+    object-fit: cover; /* Maintain image's aspect ratio */
+    object-position: top center; /* Focus on the top center of the image to highlight the coach's face */
+    border-bottom: 5px solid rgba(237, 42, 110, 255); /* Add vibrant border for theme consistency */
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+    .coach-card img {
+        height: 65%; /* Slightly reduce height for a better fit */
+        object-position: top center; /* Shift the focus slightly higher to show the head more */
+    }
+}
+
+/* Small Screens (Mobile Devices) */
+@media (max-width: 768px) {
+    .coach-card img {
+        height: 60%; /* Further reduce height for smaller screens */
+        object-position: top center; /* Center and shift up to prioritize the head */
+    }
+}
+
+/* Very Small Screens (Narrow Mobile) */
+@media (max-width: 480px) {
+    .coach-card img {
+        height: 55%; /* Smaller height for very narrow screens */
+        object-position: 50% 0%; /* Focus entirely on the uppermost part for the head */
+    }
+}
+
+/* Location Section Styling */
+.location {
+    position: relative;
+    padding: 60px 20px;
+    background-color: rgba(23, 21, 70, 255); /* Dark theme background */
+    text-align: center;
+    overflow: hidden;
+}
+
+.location-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0; /* Start hidden for transition */
+    transform: translateY(50px); /* Move down for transition effect */
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Smooth transition */
+}
+
+.location-heading {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: rgba(237, 42, 110, 255); /* Vibrant title color */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.location-description {
+    font-size: 1.2em;
+    color: white; /* White text for readability */
+    margin-bottom: 40px;
+}
+
+.location-map {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow for better visibility */
+}
+
+/* Trigger Transition when visible */
+.location.active .location-content {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset transform */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .location-heading {
+        font-size: 2em; /* Adjust heading size */
+    }
+
+    .location-description {
+        font-size: 1em; /* Adjust description size */
+    }
+
+    .location-map iframe {
+        height: 350px; /* Reduce map height for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .location-heading {
+        font-size: 1.8em; /* Adjust heading size for mobile */
+    }
+
+    .location-description {
+        font-size: 0.9em; /* Smaller description text */
+    }
+
+    .location-map iframe {
+        height: 300px; /* Further reduce map height for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .location-heading {
+        font-size: 1.6em; /* Smaller heading for very small screens */
+    }
+
+    .location-description {
+        font-size: 0.8em; /* Compact description text */
+    }
+
+    .location-map iframe {
+        height: 250px; /* Smallest height for narrow screens */
+    }
+}
+
+
+    /* Footer Styling */
+.footer {
+    background-color: rgba(23, 21, 70, 255); /* Dark theme background */
+    color: white; /* Default text color */
+    text-align: center;
+    padding: 40px 20px; /* Add padding for spacing */
+}
+
+.footer-container {
+    max-width: 1200px; /* Center and constrain the content */
+    margin: 0 auto;
+}
+
+.footer-icons {
+    display: flex; /* Align icons in a row */
+    justify-content: center; /* Center the icons */
+    gap: 20px; /* Space between icons */
+    margin-bottom: 20px; /* Space below the icons */
+}
+
+.footer-icons .icon {
+    font-size: 2em; /* Size of the icons */
+    color: rgba(237, 42, 110, 255); /* Vibrant icon color */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+    text-decoration: none; /* Remove underline for links */
+}
+
+.footer-icons .icon:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+    color: rgba(255, 105, 180, 255); /* Lighter hover color */
+}
+
+.footer .contact-info {
+    font-size: 1em; /* Standard text size */
+    margin: 5px 0; /* Add spacing between lines */
+    color: white; /* White text for better visibility */
+}
+
+/* Responsive Design */
+
+/* For Tablets and Smaller Screens */
+@media (max-width: 1024px) {
+    .footer-icons .icon {
+        font-size: 1.8em; /* Slightly smaller icons for tablets */
+    }
+
+    .footer .contact-info {
+        font-size: 0.9em; /* Adjust text size for tablets */
+    }
+}
+
+/* For Mobile Devices */
+@media (max-width: 768px) {
+    .footer-icons .icon {
+        font-size: 1.5em; /* Smaller icons for mobile */
+    }
+
+    .footer .contact-info {
+        font-size: 0.8em; /* Smaller text size for mobile */
+    }
+}
+
+/* For Very Small Screens */
+@media (max-width: 480px) {
+    .footer-icons .icon {
+        font-size: 1.2em; /* Even smaller icons for narrow mobile screens */
+    }
+
+    .footer .contact-info {
+        font-size: 0.7em; /* Compact text size for small screens */
+    }
+}
+
+
+
+    
+
