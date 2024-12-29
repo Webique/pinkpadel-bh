@@ -63,6 +63,55 @@ body, html {
 }
 
 
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and other elements */
+    align-items: center; /* Vertically align elements */
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between logo image and text */
+}
+
+.logo-image {
+    height: 60px; /* Adjust size for desktop */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.menu {
+    display: flex;
+    gap: 15px; /* Space between menu items */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .logo-image {
+        height: 50px; /* Adjust size for tablets */
+    }
+
+    .menu {
+        gap: 10px; /* Reduce space between menu items */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        height: 40px; /* Adjust size for mobile */
+    }
+
+    .menu {
+        display: none; /* Hide menu for mobile, toggled with the button */
+    }
+
+    .menu-toggle {
+        display: block; /* Display toggle button on mobile */
+    }
+}
+
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .navbar {
@@ -1088,7 +1137,7 @@ body, html {
 
 .image-container img {
     width: 100%;
-    height: 200px;
+    height: 600px;
     object-fit: cover;
     transition: transform 0.5s ease;
     border-radius: 0 0 15px 15px; /* Matches card radius */
@@ -1599,4 +1648,3 @@ body, html {
 
 
     
-
