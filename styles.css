@@ -474,7 +474,7 @@ body, html {
    }
    
    .hero-section .book-now-btn:hover {
-       background: #E64A19; /* Darker orange on hover */
+       background:rgba(237, 42, 110, 255); /* Darker orange on hover */
        transform: scale(1.05); /* Slightly enlarge on hover */
        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
    }
