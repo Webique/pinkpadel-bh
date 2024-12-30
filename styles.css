@@ -989,6 +989,9 @@ body, html {
 
 
 /* Pricing Section Styling */
+
+
+
 .pricing-section {
     position: relative;
     padding: 60px 20px;
@@ -1040,13 +1043,20 @@ body, html {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.2em; /* Unified font size for all text */
     color: white; /* White text for readability */
     line-height: 1.8;
 }
 
 .pricing ul li, .hours ul li {
     margin-bottom: 10px;
+    font-size: 1.2em; /* Ensure uniform font size for pricing */
+    font-weight: 500; /* Slight emphasis for clarity */
+}
+
+.pricing ul li span.price {
+    font-weight: bold; /* Make prices stand out */
+    font-size: 1.2em; /* Ensure prices match other text */
 }
 
 /* Transition Effect for Pricing Section */
@@ -1080,6 +1090,14 @@ body, html {
 
     .pricing ul, .hours ul {
         font-size: 1em;
+    }
+
+    .pricing ul li, .hours ul li {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+
+    .pricing ul li span.price {
+        font-size: 1em; /* Ensure prices are clear and consistent */
     }
 }
 
