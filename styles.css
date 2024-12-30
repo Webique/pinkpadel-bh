@@ -1073,7 +1073,7 @@ body, html {
 }
 
 .pricing h3, .hours h3 {
-    font-size: 1.8em;
+    font-size: 1.8rem;
     margin-bottom: 15px;
     color: rgba(237, 42, 110, 255); /* Vibrant title color for cards */
 }
@@ -1082,20 +1082,20 @@ body, html {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1.2em; /* Unified font size for all text */
+    font-size: 1.6rem; /* Unified font size for all text */
     color: white; /* White text for readability */
     line-height: 1.8;
 }
 
 .pricing ul li, .hours ul li {
     margin-bottom: 10px;
-    font-size: 1.2em; /* Ensure uniform font size for pricing */
+    font-size: 1.4rem; /* Ensure uniform font size for pricing */
     font-weight: 500; /* Slight emphasis for clarity */
 }
 
 .pricing ul li span.price {
     font-weight: bold; /* Make prices stand out */
-    font-size: 1.2em; /* Ensure prices match other text */
+    font-size: 1.2rem; /* Ensure prices match other text */
 }
 
 /* Transition Effect for Pricing Section */
